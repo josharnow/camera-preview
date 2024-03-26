@@ -1,6 +1,8 @@
 package com.ahm.capacitor.camera.preview;
 
 import static android.Manifest.permission.CAMERA;
+import static android.Manifest.permission.RECORD_AUDIO;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -28,7 +30,7 @@ import java.io.File;
 import java.util.List;
 import org.json.JSONArray;
 
-@CapacitorPlugin(name = "CameraPreview", permissions = { @Permission(strings = { CAMERA , RECORD_AUDIO , WRITE_EXTERNAL_STORAGE }, alias = CameraPreview.CAMERA_PERMISSION_ALIAS) })
+@CapacitorPlugin(name = "CameraPreview", permissions = { @Permission(strings = { CAMERA, RECORD_AUDIO, WRITE_EXTERNAL_STORAGE }, alias = CameraPreview.CAMERA_PERMISSION_ALIAS) })
 public class CameraPreview extends Plugin implements CameraActivity.CameraPreviewListener {
 
     static final String CAMERA_PERMISSION_ALIAS = "camera";
