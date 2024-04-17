@@ -1,6 +1,7 @@
 package com.ahm.capacitor.camera.preview;
 
 import static android.Manifest.permission.CAMERA;
+import static android.Manifest.permission.RECORD_AUDIO;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -28,7 +29,7 @@ import java.io.File;
 import java.util.List;
 import org.json.JSONArray;
 
-@CapacitorPlugin(name = "CameraPreview", permissions = { @Permission(strings = { CAMERA }, alias = CameraPreview.CAMERA_PERMISSION_ALIAS) })
+@CapacitorPlugin(name = "CameraPreview", permissions = { @Permission(strings = { CAMERA, RECORD_AUDIO }, alias = CameraPreview.CAMERA_PERMISSION_ALIAS) })
 public class CameraPreview extends Plugin implements CameraActivity.CameraPreviewListener {
 
     static final String CAMERA_PERMISSION_ALIAS = "camera";
@@ -487,7 +488,7 @@ public class CameraPreview extends Plugin implements CameraActivity.CameraPrevie
                 new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
-                        if ((null != fragment) && (fragment.toBack == true)) {
+                        if ((null != fragment) && (null != fragment.frameContainerLayout) && (fragment.toBack == true)) {
                             fragment.frameContainerLayout.dispatchTouchEvent(event);
                         }
                         return false;
