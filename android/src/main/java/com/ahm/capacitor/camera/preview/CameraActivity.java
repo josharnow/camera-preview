@@ -826,7 +826,13 @@ public class CameraActivity extends Fragment {
         }
 
         this.recordFilePath = filePath;
+
+        // NOTE - Below code is commented because it is not working as expected. Video is inverted vertically when using rear camera and horizontally when using front camera. Below is a temporary fix to fix the back camera issue.
         int mOrientationHint = calculateOrientationHint();
+        if (camera.contains("back")) {
+            mOrientationHint = 90;
+        }
+
         int videoWidth = 0; //set whatever
         int videoHeight = 0; //set whatever
 
