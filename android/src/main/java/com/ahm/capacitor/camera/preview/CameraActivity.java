@@ -918,10 +918,10 @@ public class CameraActivity extends Fragment {
             // if (degrees != 0) {
             //     orientation = (360 - orientation) % 360;
             // }
-            orientation = (cameraRotationOffset - degrees * 1 + 360) % 360;
+            orientation = (info.orientation - degrees * 1 + 360) % 360;
         } else {
             // orientation = (info.orientation - degrees + 360) % 360;
-            orientation = (cameraRotationOffset - degrees * -1 + 360) % 360;
+            orientation = (info.orientation - degrees * -1 + 360) % 360;
         }
         Log.w(TAG, "************orientationHint ***********= " + orientation);
 
