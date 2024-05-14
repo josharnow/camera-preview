@@ -786,14 +786,12 @@ public class CameraActivity extends Fragment {
                         int orientation;
                         Camera.CameraInfo info = new Camera.CameraInfo();
                         if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-                            // orientation = (info.orientation + degrees) % 360;
-                            // if (degrees != 0) {
-                            //     orientation = (360 - orientation) % 360;
-                            // }
-                            orientation = (info.orientation - degrees * 1 + 360) % 360;
+                            orientation = (info.orientation + degrees) % 360;
+                            if (degrees != 0) {
+                                orientation = (360 - orientation) % 360;
+                            }
                         } else {
-                            // orientation = (info.orientation - degrees + 360) % 360;
-                            orientation = (info.orientation - degrees * -1 + 360) % 360;
+                            orientation = (info.orientation - degrees + 360) % 360;
                         }
                         params.setRotation(orientation);
                     } else {
