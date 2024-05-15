@@ -915,7 +915,8 @@ public class CameraActivity extends Fragment {
                 orientation = (360 - orientation) % 360;
             }
         } else {
-            orientation = ((info.orientation - degrees) * -1 + 360) % 360;
+            // orientation = ((info.orientation - degrees) * -1 + 360) % 360;
+            orientation = (90 - degrees * -1 + 360) % 360;
         }
         Log.w(TAG, "************orientationHint ***********= " + orientation);
 
